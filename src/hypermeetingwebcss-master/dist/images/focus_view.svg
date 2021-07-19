@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="152px" height="90px" viewBox="0 0 152 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>focus view</title>
+    <g id="Guideline" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="04_00_02_view-switch" transform="translate(-744.000000, -500.000000)" fill="#747474">
+            <path d="M865,500 L865,590 L744,590 L744,500 L865,500 Z M896,574 L896,590 L868,590 L868,574 L896,574 Z M896,556 L896,571 L868,571 L868,556 L896,556 Z M896,537 L896,553 L868,553 L868,537 L896,537 Z M896,519 L896,534 L868,534 L868,519 L896,519 Z M896,500 L896,516 L868,516 L868,500 L896,500 Z" id="focus-view"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/check_on</title>
+    <g id="Icon/check_on" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="check_circle-24px">
+            <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+            <path d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M10.5,16.71 L5.5,11.71 L6.91,10.3 L10.5,13.88 L17.09,7.29 L18.5,8.71 L10.5,16.71 Z" id="Shape" fill="#000000"></path>
+        </g>
+    </g>
+</svg>

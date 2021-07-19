@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HyperMeeting</title>
+
+  <link rel="shortcut icon" href="./images/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="256x256"  href="./images/favicon/android-chrome-256x256.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="./images/favicon/android-chrome-192x192.png">
+  <link rel="manifest" href="./images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="./images/favicon/safari-pinned-tab.svg">
+  <!-- Windows 8.1 + IE11 and above  -->
+  <meta name="msapplication-config" content="./images/favicon/browserconfig.xml" />
+
+  <link rel="stylesheet" href="./css/jquery-ui.min.css">
+  <link rel="stylesheet" href="./css/style.module.css">
+  
+  <script src="./js/jquery-3.5.1.min.js"></script>
+  <script src="./js/jquery-ui.min.js"></script>
+  <script src="./js/slick.min.js"></script>
+  <script src="./js/script.js"></script>
+  
+</head>
+<body>
+  <div id="root">
+
+   
+    <div class="MeetingPagePrensenter">
+      <div class="MeetingHeaderPresenter">
+        <div class="room-title">
+          <span class="room-title-logo"></span>
+          <p>회의실 ID : 111-111-1111</p>
+          <button type="button" class="btn-icon btn-copy"><span>copy</span></button>
+        </div>
+        <div class="room-topMenu">
+          <button type="button" class="btn-icon hm-tooltip bottom center btn-info-room on" data-title="회의실 정보"><span>회의실 정보</span></button>
+          <button type="button" class="btn-icon hm-tooltip bottom center btn-info-entry" data-title="참여자 정보" data-number="6"><span>참여자 정보</span></button>
+          <button type="button" class="btn-icon hm-tooltip bottom right btn-set" data-title="설정"><span>설정</span></button>
+        </div>
+      </div>
+      <div class="room-container">
+        <div class="room-content">
+          <div class="room-viewBox view-focus">
+            <div class="room-mainView">
+              <div class="mainView-box">
+                <div class="view-video-wrap">
+                  <!-- <video class="view-video" poster="./images/sample_1.jpg" muted autoplay></video> -->
+                  <!-- <div class="cam_none_view"><img src="./images/cam_none.svg" alt=""></div> -->
+                  <img src="./images/cam_none.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="room-thumbView">
+              <button type="button" class="thumbView-arrow arrow-prev disabled"><span></span></button>
+              <div class="thumbView-slider">
+                <div class="thumb-slide">
+                  <div class="view-video-wrap">
+                    <div class="cam_none_view"><img src="./images/cam_none.svg" alt=""></div>
+                  </div>
+                </div>
+                <div class="thumb-slide">
+                  <div class="view-video-wrap"><video class="view-video" poster="./images/sample_2.jpg" muted autoplay></video></div>
+                </div>
+                <div class="thumb-slide">
+                  <div class="view-video-wrap"><video class="view-video" poster="./images/sample_3.jpg" muted autoplay></video></div>
+                </div>
+                <div class="thumb-slide">
+                  <div class="view-video-wrap"><video class="view-video" poster="./images/sample_4.jpg" muted autoplay></video></div>
+                </div>
+              </div>
+              <button type="button" class="thumbView-arrow arrow-next disabled"><span></span></button>
+              <div class="slick-counter"><span class="current">1</span>/<span class="total">4</span></div>
+            </div>
+          </div>
+
+          <!-- 참여자 정보  -->
+          <div class="room-partiList show">
+            <div class="partiList-header">
+              <p>참여자 (6)</p>
+              <button type="button" class="partiList-close"><span class="blind">참여자 정보 닫기</span></button>
+            </div>
+            <div class="partiList-top">
+              <div class="leader-box">
+                <div class="partiList-msg">
+                  <p>포커스 된 참여자로 설정</p>
+                </div>
+                <div class="leader-name">
+                  <span class="icon-leader"></span>가나다라마바사아자차카타파하
+                </div>
+                <div class="leader-menu">
+                  <button type="button" class="btn-icon btn-cam on"><span>cam</span></button>
+                  <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                </div>
+              </div>
+              <div class="search-box">
+                <div class="icon-inputBox">
+                  <label for="searchName" class="blind">이름 검색</label>
+                  <img src="./images/search.svg" class="icon-search" alt="">
+                  <input type="text" name="searchName" placeholder="이름 검색" value="">  
+                </div>
+              </div>
+            </div>
+
+            <div class="partiList-container">
+              <div class="container-top">
+                <p>전체</p>
+                <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+              </div>
+              <div class="container-listBox">
+
+                <!-- Case 3-2. 검색 결과가 없을 경우 -->
+                <!-- <div class="listBox-noText">
+                  <p>검색 결과가 없습니다.</p>
+                </div> -->
+
+                <!-- Case 4-2. 참여자가 없을 경우 -->
+                <!-- <div class="listBox-noText">
+                  <p>입장한 참여자가 없습니다.</p>
+                </div> -->
+
+                <!-- Case 3-1. Default / Case 4-1. 참여자가 많을 경우 -->
+                <div class="listBox-wrap">
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">
+                        <span class="icon-leader"></span>가나다라마바사아자차카타파하가나다라마바사아자차카타파하
+                      </div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off disabled"><span>cam</span></button>
+                        <button type="button" disabled class="btn-icon hm-tooltip bottom left btn-mic on" data-title="마이크 끄기"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">
+                        <span class="icon-leader"></span>Yoonmi
+                      </div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon hm-tooltip bottom left btn-cam-off" data-title="카메라 켜기"><span>cam</span></button>
+                        <button type="button" class="btn-icon hm-tooltip bottom left btn-mic-off" data-title="마이크 켜기"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">가나다라마바사아자차카타파하가나다라마바사아자차카타파하</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off" title="카메라 켜기"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on" title="마이크 끄기"><span>mic</span></button>
+                        <!-- <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button> -->
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Jin</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam on" title="카메라 끄기"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on" title="마이크 끄기"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Yuseop</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Soohan</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Yoonji</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Yoonji</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Yoonji</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Yoonji</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Yoonji</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Yoonji</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Yoonji</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Yoonji</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Yoonji</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Yoonji</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Yoonji</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+
+                  <!-- list -->
+                  <dl class="list-wrap">
+                    <dt>
+                      <div class="list-name">Yoonji</div>
+                      <div class="list-menu">
+                        <button type="button" class="btn-icon btn-cam-off"><span>cam</span></button>
+                        <button type="button" class="btn-icon btn-mic on"><span>mic</span></button>
+                        <button type="button" class="btn-icon btn-arrow-bottom"><span>more menu</span></button>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="list-subMenu">
+                        <button type="button" class="btn-icon btn-leader"><span>leader</span></button>
+                        <button type="button" class="btn-icon btn-expulsion"><span>expulsion</span></button>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="room-footer">
+          <div class="room-footer-section header">
+            <div class="room-footer-timer">
+              <input type="text" aria-invalid="false" value="00:00:00" disabled>
+            </div>
+          </div>
+          <div class="room-footer-section middle">
+            <button type="button" class="btn-icon btn-circle hm-tooltip top center btn-cam" data-title="카메라 끄기"><span>cam / cam off</span></button>
+            <button type="button" class="btn-icon btn-circle btn-mic-off" disabled><span>mic / mic off</span></button>
+            <button type="button" class="btn-icon btn-circle btn-view-focus"><span>view focus / view grid</span></button>
+            <button type="button" class="btn-icon btn-circle btn-share-screen on"><span>share screen</span></button>
+            <button type="button" class="btn-icon btn-circle btn-screen-full"><span>screen full / screen collapse</span></button>
+          </div>
+          <div class="room-footer-section tail">
+            <button type="button" class="btn-icon btn-exit"><span>회의실 나가기</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- 회의실 정보 팝업 -->
+    <div id="popup-info-room" style="display: none;">
+      <div class="infoRoom-header">
+        HyperMeeting 설계 회의
+        <!-- <input type="text" value="HyperMeeting 설계 회의" class="popup-info-title"> -->
+        <button type="button" class="btn-icon btn-edit"><span>edit</span></button>
+      </div>
+      <div class="infoRoom-contBox">
+        회의실 ID : <span class="room-id">111-111-1111111-111-1111</span>
+        <button type="button" class="btn-icon btn-copy"><span>copy</span></button>
+      </div>
+      <div class="infoRoom-contBox">
+        회의실 URL : <span class="room-url">landing page url/111-111-1111landing page url/111-111-1111</span>
+        <button type="button" class="btn-icon btn-copy"><span>copy</span></button>
+      </div>
+      <div class="infoRoom-contBox">
+        회의실 비밀번호 : tmaxos1234
+      </div>
+    </div>
+
+
+
+
+
+    <!-- 설정 팝업 -->
+    <div id="popup-set" style="display: none;">
+      <p class="set-header">장치 설정</p>
+      <div class="set-contBox">
+        <div class="contBox-item">
+          <div class="set-btnBox">
+            <button type="button" class="btn-icon btn-mic"><span>mic</span></button>
+          </div>
+          <div class="select-box">
+            <label for="sel" class="blind">마이크 설정</label>
+            <select id="sel" class="form-select">
+              <option>장치 명 장치 명 장치 명</option>
+              <option>장치명 2</option>
+              <option>장치명 3</option>
+            </select>
+          </div>
+        </div>
+        <div class="contBox-item">
+          <div class="set-btnBox">
+            <button type="button" class="btn-icon btn-cam"><span>cam</span></button>
+          </div>
+          <div class="select-box">
+            <label for="sel" class="blind">카메라 설정</label>
+            <select id="sel" class="form-select">
+              <option>연결된 장치 없음</option>
+              <option>장치명 2</option>
+              <option>장치명 3</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="set-footer">
+        <div class="footer-item">
+          <p>화면 공유 잠그기</p>
+          <span>(체크 시 리더만 화면 공유 가능)</span>
+        </div>
+        <div class="footer-item">
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    
+  </div>
+</body>
+</html>
+
+
