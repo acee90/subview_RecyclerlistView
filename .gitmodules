@@ -1,0 +1,3 @@
+[submodule "recyclerlistview"]
+	path = src/recyclerlistview
+	url = https://github.com/Flipkart/recyclerlistview.git
